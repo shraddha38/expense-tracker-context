@@ -1,7 +1,7 @@
 import { Form, Modal, Button } from "react-bootstrap"
 import { useRef } from "react"
 import { useBudgets, UNCATEGORIZED_BUDGET_ID } from "../contexts/BudgetContext"
-
+//import { UserContext } from '../contexts/UserContext';
 export default function AddExpenseModal({
   show,
   handleClose,
@@ -11,7 +11,8 @@ export default function AddExpenseModal({
   const amountRef = useRef()
   const budgetIdRef = useRef()
   const { addExpense, budgets } = useBudgets()
-
+  // const [employeeDetail] = React.useContext(UserContext);
+  // console.log(employeeDetail, "in add expense modal");
   function handleSubmit(e) {
     e.preventDefault()
     addExpense({
@@ -22,11 +23,12 @@ export default function AddExpenseModal({
     handleClose()
   }
 
+
   return (
     <Modal show={show} onHide={handleClose}>
       <Form onSubmit={handleSubmit}>
         <Modal.Header closeButton>
-          <Modal.Title>New Expense</Modal.Title>
+          <Modal.Title>New Expense for </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form.Group className="mb-3" controlId="description">
