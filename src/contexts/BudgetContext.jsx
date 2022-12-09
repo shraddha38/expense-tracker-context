@@ -30,6 +30,7 @@ export const BudgetsProvider = ({ children }) => {
       return [...prevBudgets, { id: uuidV4(), name, max }]
     })
   }
+  console.log(budgets, "k")
   function deleteBudget({ id }) {
     setExpenses(prevExpenses => {
       return prevExpenses.map(expense => {
@@ -48,6 +49,8 @@ export const BudgetsProvider = ({ children }) => {
     })
   }
 
+
+  // returning the budget provider
   return (
     <BudgetsContext.Provider
       value={{
